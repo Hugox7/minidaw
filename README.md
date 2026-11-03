@@ -1,3 +1,7 @@
+## V1 bêta 10.1 — Barre de lecture
+
+Bouton d’ajustement intégré à côté du nombre de mesures ; styles, focus et état désactivé harmonisés. Champs, boutons et compteurs alignés verticalement. Version complète incluant la bêta 10.
+
 ## V1 bêta 10 — Piano et cordes
 
 Cinq instruments enregistrés : piano acoustique, violon, violoncelle, contrebasse pizzicato et contrebasse à l’archet. Choisir le son sur une piste d’instrument virtuel ; aperçu, notes, mixage, sauvegarde et export communs aux autres instruments.
