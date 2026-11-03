@@ -9,7 +9,7 @@ export function prepareDrumSamples(tracks: Track[]): Promise<void> {
   if (!loading) {
     // Install the complete kit atomically, so a failed load can safely be retried.
     loading = Promise.all(ACOUSTIC_FILES.map(async name => {
-      const response = await fetch(`samples/pearl/${name}`);
+      const response = await fetch(`/samples/pearl/${name}`);
       if (!response.ok) throw new Error(`Sample ${name} introuvable (${response.status}). Copie aussi le dossier public de la V0.6.`);
       const buffer = await Tone.getContext().decodeAudioData(await response.arrayBuffer());
       return [name, buffer] as const;

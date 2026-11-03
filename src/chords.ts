@@ -1,3 +1,4 @@
+import {tr} from './i18n';
 import type {Note} from './types';
 
 export const CHORDS = {
@@ -12,7 +13,7 @@ export const CHORDS = {
 } as const;
 export type ChordKind = keyof typeof CHORDS;
 export const PITCH_NAMES = ['Do', 'Do♯', 'Ré', 'Ré♯', 'Mi', 'Fa', 'Fa♯', 'Sol', 'Sol♯', 'La', 'La♯', 'Si'];
-export const midiName = (midi: number) => `${PITCH_NAMES[midi % 12]}${Math.floor(midi / 12) - 1}`;
+export const midiName = (midi: number) => `${tr(PITCH_NAMES[midi % 12])}${Math.floor(midi / 12) - 1}`;
 export function chordPitches(root: number, octave: number, kind: ChordKind): number[] {
   return CHORDS[kind].intervals.map(interval => (octave + 1) * 12 + root + interval);
 }

@@ -12,7 +12,7 @@ export async function prepareInstrumentSamples(tracks: Track[]) {
     if (!promise) {
       const preset = SAMPLED_INSTRUMENTS[id];
       promise = Promise.all(Object.entries(preset.samples).map(async ([note, filename]) => {
-        const response = await fetch(`samples/instruments/${preset.folder}/${filename}`);
+        const response = await fetch(`/samples/instruments/${preset.folder}/${filename}`);
         if (!response.ok) throw new Error(`${preset.name} : fichier ${filename} introuvable. Copie aussi le dossier public de la V0.7.`);
         const buffer = await Tone.getContext().decodeAudioData(await response.arrayBuffer());
         return [note, buffer] as const;

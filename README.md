@@ -3,12 +3,83 @@
 Séquenceur React / TypeScript / Vite / Tone.js avec instruments virtuels,
 batterie, import audio et enregistrement d'instruments depuis une carte son.
 
+## V1 bêta 8 — français, anglais, espagnol et HTML pour le référencement
+
+Cette archive complète inclut les pédales, les compteurs, les prises prolongées
+et le correctif des dépendances du déploiement précédent.
+
+### Installation et déploiement
+
+Arrête le serveur de développement avant de remplacer les fichiers. Copie
+**tous les dossiers** : `src`, `public`, **`scripts` et `content`**, ainsi que les
+fichiers de la racine. Les deux derniers dossiers sont nécessaires à la
+génération des pages HTML et guides. Deux dépendances ont été ajoutées :
+`i18next` et `react-i18next`, verrouillées dans le package-lock corrigé.
+
+Dans le dossier contenant package.json :
+
+```bash
+npm ci --registry=https://registry.npmjs.org
+npm run build
+```
+
+Sur Netlify, la commande reste **npm run build** et le dossier publié reste
+**dist**. Les pages de langue et le sitemap sont générés après Vite. Déploie
+à la racine du sous-domaine `minidaw.trameworks.com` ; les samples et le worklet
+utilisent des chemins absolus pour fonctionner depuis chaque langue.
+Le .gitignore fourni exclut node_modules et dist. Si ces dossiers étaient déjà
+suivis par Git, il faut aussi les retirer du suivi ; les ignorer ne suffit pas.
+
+### Langues et sessions
+
+Le header propose Français, English et Español. L’adresse choisie est /fr/,
+/en/ ou /es/. Les changements se font sans recharger ni remonter le studio :
+lecture, prise, effets, zoom et projet courant sont conservés. Les noms saisis
+par l’utilisateur ne sont pas traduits. Les trois langues sur le même domaine
+partagent les mêmes clés de stockage navigateur et la même base audio.
+La langue est mémorisée séparément du projet ; une URL explicite est prioritaire.
+La racine utilise le français ou la préférence mémorisée. Les contrôles natifs
+de permission/fichiers conservent la langue du navigateur ou du système.
+
+Les textes de l’interface et de ses messages sont dans src/locales/fr.json,
+en.json et es.json. Les clés françaises restent stables ; les paramètres
+{{v0}}, {{v1}}, etc. doivent être conservés dans chaque traduction. Le helper
+tr s’appuie sur i18next et peut retraduire un message d’état déjà affiché
+lorsque la langue change. Les types, identifiants, notes MIDI et données
+sauvegardées restent indépendants des libellés. L’anglais utilise C/D/E… ; le
+français et l’espagnol utilisent Do/Ré/Mi… et Do/Re/Mi… respectivement.
+Les presets de pédales restent identifiés par leur ID, quelle que soit la langue.
+
+### Pages HTML et indexation
+
+Les trois studios /fr/, /en/, /es/ contiennent une présentation, des fonctions,
+un démarrage et une FAQ en HTML, sans dépendre de JavaScript pour ce contenu.
+Cette présentation reste repliable sous le studio pour garder l’interface légère.
+Le studio interactif lui-même nécessite JavaScript ; son interface complète
+n’est pas rendue côté serveur.
+
+Chaque langue a un titre, une description, des balises sociales, une URL
+canonique propre, des liens hreflang réciproques et des données structurées
+WebApplication sans notes ni avis inventés. La racine française a pour
+canonique /fr/ afin de ne pas créer une deuxième page française concurrente.
+Les guides sont de vraies pages HTML lisibles sans JavaScript :
+/fr/guide/, /en/guide/ et /es/guide/. L’ancien /guide.html redirige vers le guide
+français. Les liens de langue des guides naviguent entre ces documents statiques.
+Le serveur Vite de développement sert aussi les trois guides.
+
+Après déploiement, soumets **https://minidaw.trameworks.com/sitemap.xml** dans
+Google Search Console. Le sitemap liste les trois studios et les trois guides ;
+robots.txt indique également son adresse. L’indexation et le classement restent
+à vérifier dans Search Console et ne sont pas garantis par ces balises.
+Le contenu SEO partagé est dans src/locales/site.json ; le domaine canonique
+est défini dans src/seo.ts. Les guides anglais et espagnol sont dans content/.
+
 ## Installer la mise à jour
 
 Copie le contenu du dossier `mini-daw` dans ton dossier existant, en acceptant
 les remplacements. Copie aussi **tout le dossier `public`** : il contient les
 samples et le nouveau processeur d'enregistrement `worklets/recorder.js`.
-Garde `node_modules`, puis recharge la page. Aucune nouvelle dépendance.
+Arrête le serveur, lance `npm ci`, puis relance avec `npm run dev`. Cette version ajoute i18next et react-i18next.
 
 Pour une installation neuve : Node.js 20.19+ ou 22.12+, puis `npm install` et
 `npm run dev` dans le dossier contenant `package.json`.

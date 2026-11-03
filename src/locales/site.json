@@ -1,0 +1,71 @@
+{
+  "fr": {
+    "title": "miniDAW — Studio d’enregistrement en ligne gratuit",
+    "description": "Compose une batterie, enregistre guitare, basse ou voix, ajoute des effets et exporte ton morceau en WAV. Studio web gratuit, en français, sans compte.",
+    "summary": "Découvrir miniDAW · le studio en ligne simple",
+    "heading": "Un studio d’enregistrement en ligne pour guitare, basse et voix",
+    "intro": "miniDAW est un petit studio de musique qui fonctionne dans ton navigateur. Crée un accompagnement, enregistre tes instruments, équilibre tes pistes et garde ton morceau sur ta machine, sans créer de compte.",
+    "featuresTitle": "Composer, enregistrer et mixer au même endroit",
+    "features": ["Piano roll avec notes dessinées, accords prédéfinis et copie de mesures.", "Batterie acoustique ou synthétique avec 21 rythmes prédéfinis.", "Enregistrement avec carte son ou micro, décompte et compensation de latence réglable.", "Édition des prises : déplacer, raccourcir, dupliquer et refaire une prise.", "Pédales guitare et basse : overdrive, distorsion, fuzz, chorus et delay, avec ampli et baffle.", "Mixage par piste : volume, panoramique, égaliseur, compression et réverbération.", "Accordeur chromatique et liens vers les outils d’entraînement Bass et Guitar.", "Sauvegarde des projets .minidaw sur disque et export du mix en WAV stéréo."],
+    "startTitle": "Comment enregistrer ton premier morceau ?",
+    "steps": ["Ajoute une batterie ou dessine quelques accords pour créer ton accompagnement.", "Branche ton instrument sur une carte son, ajoute une piste audio et active la bonne entrée.", "Enregistre après le décompte, ajuste les effets à la réécoute et sauvegarde ton projet."],
+    "faqTitle": "Avant de commencer",
+    "faq": [
+      ["Faut-il installer un logiciel ou créer un compte ?", "Non. Le studio s’ouvre directement dans le navigateur et les projets se sauvegardent sur ta machine. L’accès au micro ou à la carte son nécessite ton autorisation."],
+      ["Les effets s’entendent-ils pendant que je joue ?", "Pour le moment, les effets s’appliquent à la réécoute et à l’export. Pour t’entendre en jouant, utilise le monitoring direct de ta carte son, qui reste brut."],
+      ["Où sont conservées mes prises ?", "La copie de travail reste dans le navigateur, sur ce domaine. Enregistre aussi un fichier .minidaw sur ton disque pour garder une sauvegarde transportable. Aucune sauvegarde cloud n’est proposée."],
+      ["Quels sont les formats et limites actuels ?", "Le mix s’exporte en WAV stéréo 16 bits / 44,1 kHz, avec une durée musicale maximale de cinq minutes. Chaque prise est limitée à cinq minutes et 64 Mo ; la durée effective dépend de la fréquence d’échantillonnage."],
+      ["Puis-je utiliser le studio en anglais ou en espagnol ?", "Oui. Le sélecteur du header propose français, anglais et espagnol sans fermer ta session. Les noms de tes morceaux et pistes restent inchangés."]
+    ],
+    "guide": "Lire le guide complet", "studio": "Ouvrir le studio", "loading": "Le studio interactif se charge. Active JavaScript pour composer et enregistrer ; la présentation et le guide restent accessibles ci-dessous.",
+    "guideTitle": "Guide miniDAW — Enregistrer, composer et mixer",
+    "guideDescription": "Le guide du studio miniDAW : enregistrer guitare, basse ou voix, créer une batterie, régler les effets, sauvegarder les projets et exporter en WAV.",
+    "guideHeading": "Guide d’utilisation", "contents": "Dans ce guide", "back": "Retour au studio", "language": "Langues", "practice": "Entraînement", "by": "Un projet Trameworks"
+  },
+  "en": {
+    "title": "miniDAW — Free online recording studio",
+    "description": "Create drum tracks, record guitar, bass or vocals, add effects and export your song as WAV. A simple, free browser-based music studio with no account.",
+    "summary": "Discover miniDAW · a simple online studio",
+    "heading": "An online recording studio for guitar, bass and vocals",
+    "intro": "miniDAW is a small music studio that runs in your browser. Build backing tracks, record your instruments, balance your mix and keep your songs on your own computer, without creating an account.",
+    "featuresTitle": "Compose, record and mix in one place",
+    "features": ["Piano roll with note drawing, chord presets and bar copying.", "Acoustic or synthesized drums with 21 preset patterns.", "Audio-interface or microphone recording, count-in and adjustable latency compensation.", "Take editing: move, trim, duplicate and record a replacement take.", "Guitar and bass pedals: overdrive, distortion, fuzz, chorus and delay, plus amp and cabinet.", "Track mixing: volume, pan, equalizer, compression and reverb.", "Chromatic tuner and links to the Bass and Guitar practice tools.", "Save portable .minidaw projects to disk and export a stereo WAV mix."],
+    "startTitle": "How do I record my first song?",
+    "steps": ["Add a drum pattern or draw some chords to build your backing.", "Connect your instrument to an audio interface, add an audio track and enable the correct input.", "Record after the count-in, adjust effects during playback and save your project."],
+    "faqTitle": "Before you start",
+    "faq": [
+      ["Do I need to install software or create an account?", "No. Open the studio in your browser and save projects to your computer. Microphone or audio-interface access requires your permission."],
+      ["Can I hear effects while I play?", "For now, effects apply during playback and export. To hear yourself while playing, use your audio interface’s direct monitoring, which remains dry."],
+      ["Where are my recordings stored?", "Your working copy stays in the browser on this domain. Also save a .minidaw file to disk for a portable backup. Cloud project storage is not provided."],
+      ["What formats and limits are currently supported?", "Export is stereo 16-bit / 44.1 kHz WAV, with up to five minutes of musical content. Each take is limited to five minutes and 64 MB; the effective duration depends on sample rate."],
+      ["Can I use the studio in French or Spanish?", "Yes. The header selector offers French, English and Spanish without closing your session. Song and track names stay unchanged."]
+    ],
+    "guide": "Read the full guide", "studio": "Open the studio", "loading": "The interactive studio is loading. Enable JavaScript to compose and record; the introduction and guide remain accessible below.",
+    "guideTitle": "miniDAW guide — Record, compose and mix",
+    "guideDescription": "Learn to record guitar, bass or vocals, create drum tracks, adjust effects, save projects and export WAV files with miniDAW.",
+    "guideHeading": "User guide", "contents": "In this guide", "back": "Back to studio", "language": "Languages", "practice": "Practice", "by": "A Trameworks project"
+  },
+  "es": {
+    "title": "miniDAW — Estudio de grabación online gratuito",
+    "description": "Crea baterías, graba guitarra, bajo o voz, añade efectos y exporta tu tema en WAV. Un estudio musical sencillo y gratuito en el navegador, sin cuenta.",
+    "summary": "Descubre miniDAW · un estudio online sencillo",
+    "heading": "Un estudio de grabación online para guitarra, bajo y voz",
+    "intro": "miniDAW es un pequeño estudio musical que funciona en tu navegador. Crea acompañamientos, graba tus instrumentos, equilibra la mezcla y guarda tus temas en tu ordenador, sin crear una cuenta.",
+    "featuresTitle": "Componer, grabar y mezclar en un mismo lugar",
+    "features": ["Piano roll para dibujar notas, colocar acordes predefinidos y copiar compases.", "Batería acústica o sintetizada con 21 patrones predefinidos.", "Grabación con interfaz de audio o micrófono, cuenta de entrada y compensación de latencia ajustable.", "Edición de tomas: mover, recortar, duplicar y repetir una toma.", "Pedales para guitarra y bajo: overdrive, distorsión, fuzz, chorus y delay, con amplificador y pantalla.", "Mezcla por pista: volumen, panorama, ecualizador, compresión y reverberación.", "Afinador cromático y enlaces a las herramientas de práctica Bass y Guitar.", "Proyectos .minidaw portátiles guardados en disco y exportación de la mezcla en WAV estéreo."],
+    "startTitle": "¿Cómo grabo mi primer tema?",
+    "steps": ["Añade un patrón de batería o dibuja unos acordes para crear el acompañamiento.", "Conecta el instrumento a una interfaz, añade una pista de audio y activa la entrada adecuada.", "Graba después de la cuenta, ajusta los efectos durante la reproducción y guarda el proyecto."],
+    "faqTitle": "Antes de empezar",
+    "faq": [
+      ["¿Hay que instalar un programa o crear una cuenta?", "No. Abre el estudio en el navegador y guarda los proyectos en tu ordenador. El acceso al micrófono o a la interfaz requiere tu autorización."],
+      ["¿Se oyen los efectos mientras toco?", "Por ahora, los efectos se aplican durante la reproducción y la exportación. Para escucharte al tocar, usa la monitorización directa de la interfaz, que conserva el sonido sin procesar."],
+      ["¿Dónde se guardan mis grabaciones?", "La copia de trabajo permanece en el navegador, en este dominio. Guarda también un archivo .minidaw en disco para tener una copia portátil. No se ofrece almacenamiento de proyectos en la nube."],
+      ["¿Qué formatos y límites hay actualmente?", "La mezcla se exporta en WAV estéreo de 16 bits / 44,1 kHz, con hasta cinco minutos de contenido musical. Cada toma tiene un límite de cinco minutos y 64 MB; la duración efectiva depende de la frecuencia de muestreo."],
+      ["¿Puedo usar el estudio en francés o en inglés?", "Sí. El selector del encabezado ofrece francés, inglés y español sin cerrar la sesión. Los nombres de los temas y las pistas no cambian."]
+    ],
+    "guide": "Leer la guía completa", "studio": "Abrir el estudio", "loading": "El estudio interactivo se está cargando. Activa JavaScript para componer y grabar; la presentación y la guía siguen disponibles más abajo.",
+    "guideTitle": "Guía de miniDAW — Grabar, componer y mezclar",
+    "guideDescription": "Aprende a grabar guitarra, bajo o voz, crear baterías, ajustar efectos, guardar proyectos y exportar archivos WAV con miniDAW.",
+    "guideHeading": "Guía de uso", "contents": "En esta guía", "back": "Volver al estudio", "language": "Idiomas", "practice": "Práctica", "by": "Un proyecto de Trameworks"
+  }
+}

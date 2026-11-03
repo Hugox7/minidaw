@@ -14,7 +14,7 @@ export async function openAudioInput(deviceId: string, channel: InputChannel, on
   const stream = await navigator.mediaDevices.getUserMedia({audio: {deviceId: deviceId ? {exact: deviceId} : undefined, echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: {ideal: 2}}, video: false});
   try {
     const context = Tone.getContext();
-    await context.addAudioWorkletModule('worklets/recorder.js');
+    await context.addAudioWorkletModule('/worklets/recorder.js');
     const source = context.createMediaStreamSource(stream), splitter = context.createChannelSplitter(2), merger = context.createChannelMerger(2), analyser = context.createAnalyser();
     analyser.fftSize = 1024;
     source.connect(splitter);
