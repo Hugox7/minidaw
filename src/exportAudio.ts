@@ -1,4 +1,5 @@
 import * as Tone from 'tone';
+import {contentBars} from './projectLength';
 import type {Project} from './types';
 import {validateProject, projectFilename} from './projectFile';
 import {prepareDrumSamples} from './acousticDrums';
@@ -30,7 +31,7 @@ export async function encodeStereoWav(buffer: BufferData): Promise<{blob: Blob; 
 export function mixFilename(name: string) {return projectFilename(name).replace(/\.minidaw$/, '.wav');}
 export async function exportProjectAudio(project: Project, progress: (message: string) => void = () => {}) {
   if (exporting) throw new Error('Un export est déjà en cours.');
-  const snapshot = validateProject(project), length = snapshot.bars * 4 * 60 / snapshot.bpm;
+  const snapshot = validateProject(project), length = contentBars(snapshot, true) * 4 * 60 / snapshot.bpm;
   if (snapshot.pendingRetake) throw new Error('Valide ou refuse la nouvelle prise avant d’exporter le morceau.');
   if (length > MAX_SECONDS) throw new Error('Cette première version exporte les morceaux de 5 minutes maximum. Réduis le nombre de mesures avant de réessayer.');
   const tracks = snapshot.tracks.filter(track => !track.muted);

@@ -185,7 +185,7 @@ export default function PianoRoll({ track, bars, disabled, playing, playhead, on
         </div>
       </div>
     </div></div>
-    {isSampledInstrument(track.instrument) && <p className="sample-credit">{tr("Instruments enregistr\u00E9s : Tonejs Instruments / Nicholaus P. Brosowsky \u00B7 ")}<a href="/samples/instruments/CREDITS.md" target="_blank" rel="noreferrer">{tr("Sources et licence CC BY 3.0")}</a></p>}
+    {isSampledInstrument(track.instrument) && <p className="sample-credit">{tr("Samples : Tonejs Instruments et VSCO 2 CE · ")}<a href="/samples/instruments/CREDITS.md" target="_blank" rel="noreferrer">{tr("Sources et licences des samples")}</a></p>}
     <div className="editor-footer"><span>{tr("Plage : Do1 \u2192 Do6 \u00B7 Grille 1/16 \u00B7 Notes conserv\u00E9es hors des mesures affich\u00E9es")}</span><span>{track.notes.length}{tr(" notes sur la piste")}</span></div>
   </>;
 }

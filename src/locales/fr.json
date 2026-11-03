@@ -619,5 +619,20 @@
   "Langue": "Langue",
   "Langue de l’interface": "Langue de l’interface",
   "PISTES": "PISTES",
-  "- copie": "- copie"
+  "- copie": "- copie",
+  "Ajuster à la fin du morceau": "Ajuster à la fin du morceau",
+  "Retirer les mesures vides à la fin, en conservant toutes les pistes.": "Retirer les mesures vides à la fin, en conservant toutes les pistes.",
+  "Durée ajustée à la fin du morceau.": "Durée ajustée à la fin du morceau.",
+  "Piano acoustique · enregistré": "Piano acoustique · enregistré",
+  "Un piano acoustique enregistré, pour les accords et les mélodies. Essaie Do2 à Do7.": "Un piano acoustique enregistré, pour les accords et les mélodies. Essaie Do2 à Do7.",
+  "Violon · archet": "Violon · archet",
+  "Un violon enregistré à l’archet. Tiens les notes pour les mélodies et les accords ; registre conseillé : Sol3 à Mi6.": "Un violon enregistré à l’archet. Tiens les notes pour les mélodies et les accords ; registre conseillé : Sol3 à Mi6.",
+  "Violoncelle · archet": "Violoncelle · archet",
+  "Des cordes graves et chaleureuses à l’archet. Registre conseillé : Do2 à Do5. Les notes longues sont tenues.": "Des cordes graves et chaleureuses à l’archet. Registre conseillé : Do2 à Do5. Les notes longues sont tenues.",
+  "Contrebasse · pizzicato": "Contrebasse · pizzicato",
+  "Une vraie contrebasse pincée aux doigts, pour les lignes jazz et les basses acoustiques. Essaie Mi1 à Sol3.": "Une vraie contrebasse pincée aux doigts, pour les lignes jazz et les basses acoustiques. Essaie Mi1 à Sol3.",
+  "Contrebasse · archet": "Contrebasse · archet",
+  "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.",
+  "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples : Tonejs Instruments et VSCO 2 CE ·",
+  "Sources et licences des samples": "Sources et licences des samples"
 }

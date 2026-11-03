@@ -1,3 +1,21 @@
+## V1 bêta 10 — Piano et cordes
+
+Cinq instruments enregistrés : piano acoustique, violon, violoncelle, contrebasse pizzicato et contrebasse à l’archet. Choisir le son sur une piste d’instrument virtuel ; aperçu, notes, mixage, sauvegarde et export communs aux autres instruments.
+
+75 nouveaux samples inclus, environ 15 Mo : chargement à la première utilisation de chaque instrument. Les cordes à l’archet utilisent des boucles de tenue avec fondu, indépendantes par note, et une courte extinction. Les deux contrebasses proviennent d’articulations enregistrées distinctes. Une couche dynamique par instrument ; la vélocité règle le volume. Pas de legato ni de réalisme orchestral professionnel promis.
+
+Licences et provenance : public/samples/instruments/CREDITS.md, VSCO-CC0.txt et orchestra-manifest.json. Conserver tous les crédits. Les scripts de préparation ne sont pas nécessaires au build, les sons préparés sont inclus. Aucune dépendance supplémentaire.
+
+Installation complète incluant la bêta 9 : copier tous les fichiers dont public et src/sustainLoops.json, conserver vos fichiers personnels (validation Google), puis npm ci et npm run build.
+
+## V1 bêta 9 — Fin du morceau
+
+Le bouton « Ajuster à la fin du morceau », près de Mesures, retire les mesures vides finales en prenant en compte toutes les pistes, même muettes. Il conserve au moins une mesure. Il est indisponible pendant la lecture, une prise ou une comparaison de prises.
+
+L’export WAV ignore automatiquement les mesures vides finales des pistes audibles et garde 4 secondes pour la fin des effets. Le projet n’est pas modifié. La fin est arrondie à la mesure supérieure. Les silences internes et le silence enregistré dans les clips sont conservés. Les contenus au-delà de la durée choisie manuellement restent exclus de l’export.
+
+Installation : copier tous les fichiers, conserver vos fichiers personnels dans public (notamment la validation Google), puis npm ci et npm run build. Cette version inclut toutes les précédentes.
+
 # miniDAW — V1 bêta
 
 Séquenceur React / TypeScript / Vite / Tone.js avec instruments virtuels,

@@ -1,0 +1,527 @@
+[
+  {
+    "file": "piano/A1.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A1.mp3",
+    "note": "A1",
+    "output": "piano/A1.mp3",
+    "sha256": "31cac79b1c077e78f51eb725ab11bece140e537513668b92ef87fe1be0a1027e"
+  },
+  {
+    "file": "piano/C2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C2.mp3",
+    "note": "C2",
+    "output": "piano/C2.mp3",
+    "sha256": "4fb4d2a432deb5355f62a29b87087f7f1cdd2ca4885016c53d3a65c71b637935"
+  },
+  {
+    "file": "piano/Ds2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Ds2.mp3",
+    "note": "D#2",
+    "output": "piano/Ds2.mp3",
+    "sha256": "c8432e4de05016cd12534c0a584e6f26cd1b9b197fa96a6cba10507e9e96741f"
+  },
+  {
+    "file": "piano/Fs2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Fs2.mp3",
+    "note": "F#2",
+    "output": "piano/Fs2.mp3",
+    "sha256": "131eed911369b4a0bdc52addd38dec2abbeeaf68499991c1fc46aa4ec38ded6a"
+  },
+  {
+    "file": "piano/A2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A2.mp3",
+    "note": "A2",
+    "output": "piano/A2.mp3",
+    "sha256": "557d453048c86cec76a5f674963aa52119507f6b886b41e5b60d050526447ce8"
+  },
+  {
+    "file": "piano/C3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C3.mp3",
+    "note": "C3",
+    "output": "piano/C3.mp3",
+    "sha256": "277149247cbd666ce256689369e5f501bafdb68d027d866178b7944820f8ebc6"
+  },
+  {
+    "file": "piano/Ds3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Ds3.mp3",
+    "note": "D#3",
+    "output": "piano/Ds3.mp3",
+    "sha256": "357ee7ef1c13fd4a0a1f2bd565179234aa59ed1dbc68b749c8349a349410322f"
+  },
+  {
+    "file": "piano/Fs3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Fs3.mp3",
+    "note": "F#3",
+    "output": "piano/Fs3.mp3",
+    "sha256": "d43f583706a2e6a1803e2360a79248b2f1aa9b3d1f8e5f04f5f9027d2b1afda7"
+  },
+  {
+    "file": "piano/A3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A3.mp3",
+    "note": "A3",
+    "output": "piano/A3.mp3",
+    "sha256": "fdd984a8e4bfd27fbe92e071635dd1f5ca90c1aec6102270eb52b46d7d64f14a"
+  },
+  {
+    "file": "piano/C4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C4.mp3",
+    "note": "C4",
+    "output": "piano/C4.mp3",
+    "sha256": "a265c8cfd4140cf27b55054b4953b6c691fce3523530ca8ae0faed5e4cd39063"
+  },
+  {
+    "file": "piano/Ds4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Ds4.mp3",
+    "note": "D#4",
+    "output": "piano/Ds4.mp3",
+    "sha256": "981383275cc1021b425f5c3e4fab8e9ee4385e4023e82993e04140ad325d0f08"
+  },
+  {
+    "file": "piano/Fs4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Fs4.mp3",
+    "note": "F#4",
+    "output": "piano/Fs4.mp3",
+    "sha256": "0b23feb9c67e409aa18b7bd2b1897f198e5914121a709e4dfd9996af4f0a15b4"
+  },
+  {
+    "file": "piano/A4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A4.mp3",
+    "note": "A4",
+    "output": "piano/A4.mp3",
+    "sha256": "a3b829eb92b37fd1174227bc83757f3a62bc3f9efbaf79503e83447c52338d44"
+  },
+  {
+    "file": "piano/C5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C5.mp3",
+    "note": "C5",
+    "output": "piano/C5.mp3",
+    "sha256": "54a9304d2c609328580c0e06a394670559fe5f594f643d5d12c6dae158051b4a"
+  },
+  {
+    "file": "piano/Ds5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Ds5.mp3",
+    "note": "D#5",
+    "output": "piano/Ds5.mp3",
+    "sha256": "30f6a5ba2494603fb7c1cbb43c50769858f252a1a2111e1bd8c02d358513e2cd"
+  },
+  {
+    "file": "piano/Fs5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Fs5.mp3",
+    "note": "F#5",
+    "output": "piano/Fs5.mp3",
+    "sha256": "2ed25faa160029fcd28071ffa98f9504588511b2cb2179f74d7da00284f1bc33"
+  },
+  {
+    "file": "piano/A5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A5.mp3",
+    "note": "A5",
+    "output": "piano/A5.mp3",
+    "sha256": "d121012517f4985f66a72eb3947a9f5de3d7489260c6deb97022191d23670212"
+  },
+  {
+    "file": "piano/C6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C6.mp3",
+    "note": "C6",
+    "output": "piano/C6.mp3",
+    "sha256": "c3c9ee316e7b98a07d89be2340c2382aa689826b50db9080dab7f6e23ebc3d7c"
+  },
+  {
+    "file": "piano/Ds6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Ds6.mp3",
+    "note": "D#6",
+    "output": "piano/Ds6.mp3",
+    "sha256": "be47d97fc376dfed90bfdcd462370bda30abffc537a4971bde71be2502bfc876"
+  },
+  {
+    "file": "piano/Fs6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/Fs6.mp3",
+    "note": "F#6",
+    "output": "piano/Fs6.mp3",
+    "sha256": "10630698ae014d406def4a7578720ad55b86ef3baedfbdaec71efa5d4b05abd2"
+  },
+  {
+    "file": "piano/A6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/A6.mp3",
+    "note": "A6",
+    "output": "piano/A6.mp3",
+    "sha256": "857dd0dfdf42a7c11c5a0934b96bec4954377a68a8e0d65921c14ee5e8179f1a"
+  },
+  {
+    "file": "piano/C7.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/piano/C7.mp3",
+    "note": "C7",
+    "output": "piano/C7.mp3",
+    "sha256": "438e3aa98531a783bd02aab4ee0e848b3185b67039868a6876ac839c7b044e96"
+  },
+  {
+    "file": "violin/A3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/A3.mp3",
+    "note": "A3",
+    "output": "violin/A3.wav",
+    "sha256": "84268e3234cf4ad21ab612520396bd013f332e4c2ef3b3297f529bde6bfcc64a"
+  },
+  {
+    "file": "violin/C4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/C4.mp3",
+    "note": "C4",
+    "output": "violin/C4.wav",
+    "sha256": "b8a6b6f25611d76deb0f267885f11cac65329417dca5d063a493c1fc13b850df"
+  },
+  {
+    "file": "violin/E4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/E4.mp3",
+    "note": "E4",
+    "output": "violin/E4.wav",
+    "sha256": "93034d3ccd0271a225d382fec9a0aa2318578c13e9c2ddd8a48e992a9047d30f"
+  },
+  {
+    "file": "violin/G4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/G4.mp3",
+    "note": "G4",
+    "output": "violin/G4.wav",
+    "sha256": "4941851a7cc9b386539cd9fe8979bc41a78836b18c3aa461a20ab401c0a6db0e"
+  },
+  {
+    "file": "violin/A4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/A4.mp3",
+    "note": "A4",
+    "output": "violin/A4.wav",
+    "sha256": "6da4548cc5dc375ede4cd6af2bb45738c2b8cd042032ff9e0f6414c11c84c742"
+  },
+  {
+    "file": "violin/C5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/C5.mp3",
+    "note": "C5",
+    "output": "violin/C5.wav",
+    "sha256": "34f5c6b639d3433b156428ce7f9680dbf4684d6ebdfb63f931cd8ea99c46dadf"
+  },
+  {
+    "file": "violin/E5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/E5.mp3",
+    "note": "E5",
+    "output": "violin/E5.wav",
+    "sha256": "8de91d3e1cc778fa900b8ba4e3f8fd5cb0adee74f32d0dfca96d89c518c80b16"
+  },
+  {
+    "file": "violin/G5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/G5.mp3",
+    "note": "G5",
+    "output": "violin/G5.wav",
+    "sha256": "586fdc3bae2bda8ca6048662a274f21e5e7f47f0ccaf6cf7edb47068bdc230a8"
+  },
+  {
+    "file": "violin/A5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/A5.mp3",
+    "note": "A5",
+    "output": "violin/A5.wav",
+    "sha256": "b20c50e0c26435b853ea625072979b71ee6fb0f91f004b53fc2967294d329538"
+  },
+  {
+    "file": "violin/C6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/C6.mp3",
+    "note": "C6",
+    "output": "violin/C6.wav",
+    "sha256": "c1d8b6dbed86d06d52e9976951660fa9a99af1010e63327aabf87aef8591e967"
+  },
+  {
+    "file": "violin/E6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/E6.mp3",
+    "note": "E6",
+    "output": "violin/E6.wav",
+    "sha256": "98ad4e7972e370dc118b25a97d9b217856178352e5646d78230235f228e541d6"
+  },
+  {
+    "file": "violin/G6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/G6.mp3",
+    "note": "G6",
+    "output": "violin/G6.wav",
+    "sha256": "c61991638a5caa1b58851895eedbc0d2d20b24684a79c2d9156a85f67af5368a"
+  },
+  {
+    "file": "violin/A6.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/violin/A6.mp3",
+    "note": "A6",
+    "output": "violin/A6.wav",
+    "sha256": "11fb4b71184c40d5bb7ee6b92310445d608bf396c91e4e928bf0e7e56d2f1ba9"
+  },
+  {
+    "file": "cello/C2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/C2.mp3",
+    "note": "C2",
+    "output": "cello/C2.wav",
+    "sha256": "7158981e3991f3fe689e050c5e92be4326f9a40da92c5c0ac6800031509e4239"
+  },
+  {
+    "file": "cello/Ds2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/Ds2.mp3",
+    "note": "D#2",
+    "output": "cello/Ds2.wav",
+    "sha256": "4a2bb465251ab4b994fe1c26faa567e17b4795f3434b6e550e3b665cb8d9ca86"
+  },
+  {
+    "file": "cello/Fs3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/Fs3.mp3",
+    "note": "F#3",
+    "output": "cello/Fs3.wav",
+    "sha256": "d86531254446fe707234c83404d2d0868d2790817ddf15d7287bb074808983b1"
+  },
+  {
+    "file": "cello/G2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/G2.mp3",
+    "note": "G2",
+    "output": "cello/G2.wav",
+    "sha256": "723fc2dbfa238d1c408be8e14a816515dd0ee914253402cd709bf6b8e56fa5c7"
+  },
+  {
+    "file": "cello/As2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/As2.mp3",
+    "note": "A#2",
+    "output": "cello/As2.wav",
+    "sha256": "80217209a08fd41519a098755edfc9f5ff6ae5f8ff9a414badf141b884108508"
+  },
+  {
+    "file": "cello/C3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/C3.mp3",
+    "note": "C3",
+    "output": "cello/C3.wav",
+    "sha256": "ef46897f918d8d3729113e3ae234c086f500da0d9f969c16cca7f9243888d433"
+  },
+  {
+    "file": "cello/Ds3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/Ds3.mp3",
+    "note": "D#3",
+    "output": "cello/Ds3.wav",
+    "sha256": "a4f82e674e12d0d515cadb05ddbb8d24818c9c2cc4e4f20ea9a748ba54d58b82"
+  },
+  {
+    "file": "cello/G3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/G3.mp3",
+    "note": "G3",
+    "output": "cello/G3.wav",
+    "sha256": "fcf527e5819b48cf40bb8727ef385e6d36bcc22792b769dd1844a175a389cebb"
+  },
+  {
+    "file": "cello/As3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/As3.mp3",
+    "note": "A#3",
+    "output": "cello/As3.wav",
+    "sha256": "51df394ae45879af7557e1613dcda2751861324c2fbf1623cab4c0fffde985af"
+  },
+  {
+    "file": "cello/C4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/C4.mp3",
+    "note": "C4",
+    "output": "cello/C4.wav",
+    "sha256": "e2d3b411bfb23c52b5a71660421bf38426bcb06f0ad71785c60db3caa8c9749f"
+  },
+  {
+    "file": "cello/Ds4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/Ds4.mp3",
+    "note": "D#4",
+    "output": "cello/Ds4.wav",
+    "sha256": "99ca30f6888700a87a0b22345dee6a3e7b40f4e9d4c36c8996ee4110c297d125"
+  },
+  {
+    "file": "cello/G4.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/G4.mp3",
+    "note": "G4",
+    "output": "cello/G4.wav",
+    "sha256": "3aee00db665955666f6b320f7b198edd2266b55fbb37787765c5c7b6f0074c59"
+  },
+  {
+    "file": "cello/C5.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/cello/C5.mp3",
+    "note": "C5",
+    "output": "cello/C5.wav",
+    "sha256": "2f3b331989939df0cbf81cc7aed675bc87b3daf3614b11ddbb008dd921475c15"
+  },
+  {
+    "file": "contrabass/Fs1.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/Fs1.mp3",
+    "note": "F#1",
+    "output": "contrabass-arco/Fs1.wav",
+    "sha256": "b9e1da67873c70b1abf678796fc514fc731b75fe9b807d7b3cd791af9a65f558"
+  },
+  {
+    "file": "contrabass/G1.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/G1.mp3",
+    "note": "G1",
+    "output": "contrabass-arco/G1.wav",
+    "sha256": "41e8758a984529158083cc80f034dd121c7f7aec0239b2ad16bc73679a4a8f36"
+  },
+  {
+    "file": "contrabass/As1.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/As1.mp3",
+    "note": "A#1",
+    "output": "contrabass-arco/As1.wav",
+    "sha256": "842b81a85ff10709c717724332634c4657f2842e8600c5cdbf5ee6b6dbdadc40"
+  },
+  {
+    "file": "contrabass/C2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/C2.mp3",
+    "note": "C2",
+    "output": "contrabass-arco/C2.wav",
+    "sha256": "9ebba465cf9d9ef6e9d3be7177deff3f66eb6052520fdbc2147c606eff9dd388"
+  },
+  {
+    "file": "contrabass/D2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/D2.mp3",
+    "note": "D2",
+    "output": "contrabass-arco/D2.wav",
+    "sha256": "e4e223fb3eee1d42afd76abf3af57f7aeb8e1efa9dc36500514c5d9b3ef6ad0f"
+  },
+  {
+    "file": "contrabass/E2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/E2.mp3",
+    "note": "E2",
+    "output": "contrabass-arco/E2.wav",
+    "sha256": "547ce9f795556d7d1539fd76aa45f05f4be6ce81f85b6111b87a90711cf1664a"
+  },
+  {
+    "file": "contrabass/Fs2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/Fs2.mp3",
+    "note": "F#2",
+    "output": "contrabass-arco/Fs2.wav",
+    "sha256": "47fc03d5ee6740e84c87e09c7f8b60a5552a27fee1a6cb87cafe7d5fcb6072ab"
+  },
+  {
+    "file": "contrabass/Gs2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/Gs2.mp3",
+    "note": "G#2",
+    "output": "contrabass-arco/Gs2.wav",
+    "sha256": "db8fed61bb0c0a1b4bf2817ad81741290372dc98067a35a2d0470c477fd19faa"
+  },
+  {
+    "file": "contrabass/A2.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/A2.mp3",
+    "note": "A2",
+    "output": "contrabass-arco/A2.wav",
+    "sha256": "92dc659b2052f9fc34aeb7ecf07278dd96667f92dd79bc5a89484b54fed2c565"
+  },
+  {
+    "file": "contrabass/Cs3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/Cs3.mp3",
+    "note": "C#3",
+    "output": "contrabass-arco/Cs3.wav",
+    "sha256": "ebe6c250f962ef96230284c527e9e18d3e1a9c16d80adef0c07282fb02dfb76f"
+  },
+  {
+    "file": "contrabass/E3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/E3.mp3",
+    "note": "E3",
+    "output": "contrabass-arco/E3.wav",
+    "sha256": "bb170734b81884c9a6956ef4ec780f8f87a4944b4a9db52c7f1bea855f0a1115"
+  },
+  {
+    "file": "contrabass/Gs3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/Gs3.mp3",
+    "note": "G#3",
+    "output": "contrabass-arco/Gs3.wav",
+    "sha256": "442284a699ae01ad2a64559ffa662ce910bdec2577b2a07d2f1d6484d70a138c"
+  },
+  {
+    "file": "contrabass/B3.mp3",
+    "url": "https://raw.githubusercontent.com/nbrosowsky/tonejs-instruments/master/samples/contrabass/B3.mp3",
+    "note": "B3",
+    "output": "contrabass-arco/B3.wav",
+    "sha256": "6076c3dae38efe165429c3a926c74a574de941b5f0a2e9964d85587f0a60d99d"
+  },
+  {
+    "file": "contrabass-pizz/As1.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_A%230_v3_rr1.wav",
+    "note": "A#1",
+    "output": "contrabass-pizz/As1.mp3",
+    "sha256": "08b6124248b799028f99a09ca14ee2e9eb2f72fa8d7ae761b1d0b5860ea3188a"
+  },
+  {
+    "file": "contrabass-pizz/A2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_A1_v1_rr1.wav",
+    "note": "A2",
+    "output": "contrabass-pizz/A2.mp3",
+    "sha256": "3babcdc283dfddc167109545f4986d8f7f5dd8e103602757f7eff54a3d4ad066"
+  },
+  {
+    "file": "contrabass-pizz/B3.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_B2_v1_rr1.wav",
+    "note": "B3",
+    "output": "contrabass-pizz/B3.mp3",
+    "sha256": "ee4fde979befddfa986dc07c76554cc6f56baba4090ecb4cb2e53ab8af10f243"
+  },
+  {
+    "file": "contrabass-pizz/Cs3.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_C%232_v1_rr1.wav",
+    "note": "C#3",
+    "output": "contrabass-pizz/Cs3.mp3",
+    "sha256": "74ac252aeebed39b2f8b40ececfbd0bef1d41677a83880bb2866768798ca4e58"
+  },
+  {
+    "file": "contrabass-pizz/C2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_C1_v3_rr1.wav",
+    "note": "C2",
+    "output": "contrabass-pizz/C2.mp3",
+    "sha256": "8a033f43d42af1bb285d357fc65fed86525a7cc204942809e19b743c059140e8"
+  },
+  {
+    "file": "contrabass-pizz/D2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_D1_v1_rr1.wav",
+    "note": "D2",
+    "output": "contrabass-pizz/D2.mp3",
+    "sha256": "024a8ce0d8bde30d411086232ff1b6fda548c42b5581772efd430462888f8e8c"
+  },
+  {
+    "file": "contrabass-pizz/E1.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_E0_v3_rr1.wav",
+    "note": "E1",
+    "output": "contrabass-pizz/E1.mp3",
+    "sha256": "869021b068442e4ef2cdc97db7ec3088ee15cbe753a7803a2d83244cbb16344d"
+  },
+  {
+    "file": "contrabass-pizz/E2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_E1_v3_rr1.wav",
+    "note": "E2",
+    "output": "contrabass-pizz/E2.mp3",
+    "sha256": "ee7ae0ff7c820e7e0629496d7bcc94817e4ada2a048a53b2cbfa2e818ae2edae"
+  },
+  {
+    "file": "contrabass-pizz/E3.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_E2_v1_rr1.wav",
+    "note": "E3",
+    "output": "contrabass-pizz/E3.mp3",
+    "sha256": "9f560c4b05ed98bee218e80aada8e4ac3a5d38ee1c35bb70bc8ae50ba7a2643c"
+  },
+  {
+    "file": "contrabass-pizz/Fs1.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_F%230_v3_rr1.wav",
+    "note": "F#1",
+    "output": "contrabass-pizz/Fs1.mp3",
+    "sha256": "ced712ae912a55cfb5f921418f107eb64520665207d7234031b408503c3f10e2"
+  },
+  {
+    "file": "contrabass-pizz/Fs2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_F%231_v1_rr1.wav",
+    "note": "F#2",
+    "output": "contrabass-pizz/Fs2.mp3",
+    "sha256": "129275ba81c3786764b9e9dbd7b5a34357cfdd147784d075b502d77ed11bc36f"
+  },
+  {
+    "file": "contrabass-pizz/Gs2.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_G%231_v1_rr1.wav",
+    "note": "G#2",
+    "output": "contrabass-pizz/Gs2.mp3",
+    "sha256": "ec7c7fe590a380e2d12c523763ac07ca9f9b1ca3b6319c5c060dbee3cf05aba9"
+  },
+  {
+    "file": "contrabass-pizz/Gs3.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_G%232_v1_rr1.wav",
+    "note": "G#3",
+    "output": "contrabass-pizz/Gs3.mp3",
+    "sha256": "594bacc7d0542720e09bb88471c7af81c075781fef3194c1e42449bae33a7ba3"
+  },
+  {
+    "file": "contrabass-pizz/G1.wav",
+    "url": "https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/Strings/Solo%20Contrabass/Pizz/BKCtbss_Pizz_G0_v3_rr1.wav",
+    "note": "G1",
+    "output": "contrabass-pizz/G1.mp3",
+    "sha256": "85030d5169060b8b9bb58ce0737d7251066c410b32c25005506474cc32ae79e5"
+  }
+]

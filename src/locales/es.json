@@ -619,5 +619,20 @@
   "Langue": "Idioma",
   "Langue de l’interface": "Idioma de la interfaz",
   "PISTES": "PISTAS",
-  "- copie": "- copia"
+  "- copie": "- copia",
+  "Ajuster à la fin du morceau": "Ajustar al final de la canción",
+  "Retirer les mesures vides à la fin, en conservant toutes les pistes.": "Eliminar los compases vacíos del final, conservando todas las pistas.",
+  "Durée ajustée à la fin du morceau.": "Duración ajustada al final de la canción.",
+  "Piano acoustique · enregistré": "Piano acústico · grabado",
+  "Un piano acoustique enregistré, pour les accords et les mélodies. Essaie Do2 à Do7.": "Un piano acústico grabado para acordes y melodías. Prueba de Do2 a Do7.",
+  "Violon · archet": "Violín · arco",
+  "Un violon enregistré à l’archet. Tiens les notes pour les mélodies et les accords ; registre conseillé : Sol3 à Mi6.": "Un violín grabado con arco. Sostén las notas para melodías y acordes; registro recomendado: Sol3 a Mi6.",
+  "Violoncelle · archet": "Violonchelo · arco",
+  "Des cordes graves et chaleureuses à l’archet. Registre conseillé : Do2 à Do5. Les notes longues sont tenues.": "Cuerdas graves y cálidas tocadas con arco. Registro recomendado: Do2 a Do5. Las notas largas se mantienen.",
+  "Contrebasse · pizzicato": "Contrabajo · pizzicato",
+  "Une vraie contrebasse pincée aux doigts, pour les lignes jazz et les basses acoustiques. Essaie Mi1 à Sol3.": "Un contrabajo real pulsado con los dedos, para líneas de jazz y bajos acústicos. Prueba de Mi1 a Sol3.",
+  "Contrebasse · archet": "Contrabajo · arco",
+  "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "Un contrabajo tocado con arco, amplio y sostenido para notas largas. Prueba de Mi1 a Sol3.",
+  "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples: Tonejs Instruments y VSCO 2 CE ·",
+  "Sources et licences des samples": "Fuentes y licencias de los samples"
 }

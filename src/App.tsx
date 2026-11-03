@@ -1,6 +1,7 @@
 import {tr, guideHref, localeTag} from './i18n';
 import {useTranslation} from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
+import {contentBars} from './projectLength';
 import { useEffect, useRef, useState } from 'react';
 import TunerModal from './TunerModal';
 import TrainingMenu from './TrainingMenu';
@@ -325,6 +326,7 @@ function Studio() {
       <div className="transport-controls"><button disabled={phase === 'saving' || projectBusy} className="icon-button primary" onClick={() => void toggle()} title={playing ? tr("Arr\u00EAter") : tr("Lecture")}>{playing ? <Square size={19} fill="currentColor"/> : <Play size={19} fill="currentColor"/>}</button><button className="icon-button record-transport" disabled={phase === 'saving' || projectBusy || (!captureRef.current && (playing || !input || !armedId || Boolean(pending) || Boolean(review)))} onClick={() => captureRef.current ? stop() : void record()} title={captureRef.current ? tr("Arr\u00EAter la prise") : tr("Enregistrer la piste arm\u00E9e")}><Mic size={18}/></button><button disabled={phase === 'saving' || projectBusy} className="icon-button" onClick={stop} title={tr("Retour au d\u00E9but")}><RotateCcw size={18}/></button></div>
       <div className="transport-field"><label>{tr("Tempo")}</label><div className="number-field"><input aria-label={tr("Tempo BPM")} type="number" min="40" max="240" value={project.bpm} disabled={busy} onChange={e => { const bpm = Math.max(40, Math.min(240, Number(e.target.value) || 40)); setProject(p => { const audioEnd = Math.max(0, ...p.tracks.flatMap(t => (t.clips ?? []).map(c => c.startSeconds + c.duration))); return { ...p, bpm, bars: Math.max(p.bars, Math.ceil(audioEnd / (4 * 60 / bpm))) }; }); }}/><span>{tr("BPM")}</span></div></div>
       <div className="transport-field"><label>{tr("Mesures")}</label><select disabled={busy} value={project.bars} onChange={e => setProject(p => ({ ...p, bars: Number(e.target.value) }))}>{barOptions.map(b => <option key={b} value={b}>{b}</option>)}</select></div>
+      <button disabled={busy || !!review || contentBars(project) >= project.bars} title={tr("Retirer les mesures vides à la fin, en conservant toutes les pistes.")} onClick={() => { setProject(p => ({ ...p, bars: contentBars(p) })); setPlayhead(0); setStatus(tr("Durée ajustée à la fin du morceau.")); }}>{tr("Ajuster à la fin du morceau")}</button>
       <div className="master-strip"><strong>{tr("Sortie g\u00E9n\u00E9rale")}</strong><VolumeControl label={tr("Volume g\u00E9n\u00E9ral")} value={project.masterVolume ?? 0} onChange={masterVolume => { setMasterVolume(masterVolume); setProject(p => ({ ...p, masterVolume })); }}/><LevelMeter label={tr("Niveau de sortie g\u00E9n\u00E9rale")} read={getMasterPeaks}/></div>
       <PlaybackTime active={playing && (phase === 'idle' || phase === 'recording')} totalSeconds={totalSeconds}/><div className="transport-position"><strong>{Math.floor(playhead / 16) + 1}<span> : </span>{Math.floor(playhead % 16 / 4) + 1}<span> : </span>{playhead % 4 + 1}</strong><small>{tr("MESURE : TEMPS : DOUBLE")}</small></div><span className="status">● {tr(status)}</span>
     </section>

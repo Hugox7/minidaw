@@ -141,4 +141,4 @@ async function previewNotes(midis: number[], track: Track, duration: number) {
 }
 export function previewNote(midi: number, track: Track) {return previewNotes([midi], track, 1);}
 export function previewChord(midis: number[], track: Track) {return previewNotes(midis, track, 1.2);}
-export function previewInstrument(track: Track) {return previewNotes(track.kind === 'drums' ? [36, 38, 42] : track.instrument === 'electricBass' ? [28, 35] : track.instrument === 'bass' ? [36, 43] : track.instrument === 'trombone' ? [48, 55] : [60, 64, 67], track, 1.5);}
+export function previewInstrument(track: Track) {return previewNotes(track.kind === 'drums' ? [36, 38, 42] : track.instrument === 'contrabassPizz' || track.instrument === 'contrabassArco' ? [28, 35] : track.instrument === 'cello' ? [48, 55] : track.instrument === 'violin' ? [69, 76] : track.instrument === 'electricBass' ? [28, 35] : track.instrument === 'bass' ? [36, 43] : track.instrument === 'trombone' ? [48, 55] : [60, 64, 67], track, 1.5);}

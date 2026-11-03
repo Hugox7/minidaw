@@ -619,5 +619,20 @@
   "Langue": "Language",
   "Langue de l’interface": "Interface language",
   "PISTES": "TRACKS",
-  "- copie": "- copy"
+  "- copie": "- copy",
+  "Ajuster à la fin du morceau": "Fit to song end",
+  "Retirer les mesures vides à la fin, en conservant toutes les pistes.": "Remove trailing empty bars, preserving all tracks.",
+  "Durée ajustée à la fin du morceau.": "Length adjusted to song end.",
+  "Piano acoustique · enregistré": "Acoustic piano · sampled",
+  "Un piano acoustique enregistré, pour les accords et les mélodies. Essaie Do2 à Do7.": "A sampled acoustic piano for chords and melodies. Try C2 to C7.",
+  "Violon · archet": "Violin · bowed",
+  "Un violon enregistré à l’archet. Tiens les notes pour les mélodies et les accords ; registre conseillé : Sol3 à Mi6.": "A sampled bowed violin. Hold notes for melodies and chords; suggested range: G3 to E6.",
+  "Violoncelle · archet": "Cello · bowed",
+  "Des cordes graves et chaleureuses à l’archet. Registre conseillé : Do2 à Do5. Les notes longues sont tenues.": "Warm, low bowed strings. Suggested range: C2 to C5. Long notes sustain.",
+  "Contrebasse · pizzicato": "Double bass · pizzicato",
+  "Une vraie contrebasse pincée aux doigts, pour les lignes jazz et les basses acoustiques. Essaie Mi1 à Sol3.": "A real finger-plucked double bass for jazz lines and acoustic bass parts. Try E1 to G3.",
+  "Contrebasse · archet": "Double bass · bowed",
+  "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "A full, sustained bowed double bass for long notes. Try E1 to G3.",
+  "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples: Tonejs Instruments and VSCO 2 CE ·",
+  "Sources et licences des samples": "Sample sources and licenses"
 }
