@@ -5,6 +5,7 @@ export const PEDAL_TYPES = {overdrive: 'Overdrive', distortion: 'Distorsion', fu
 export type PedalType = keyof typeof PEDAL_TYPES;
 export type PedalSettings = {
   enabled: boolean;
+  octaver: {enabled: boolean; direct: number; down: number; up: number};
   saturation: {enabled: boolean; type: PedalType; gain: number; tone: number; level: number; blend: number};
   chorus: {enabled: boolean; rate: number; depth: number; mix: number};
   delay: {enabled: boolean; time: number; feedback: number; mix: number};
@@ -12,8 +13,9 @@ export type PedalSettings = {
 const obj = (value: unknown): Record<string, unknown> => value && typeof value === 'object' && !Array.isArray(value) ? value as Record<string, unknown> : {};
 const clamp = (value: unknown, fallback: number, min: number, max: number) => typeof value === 'number' && Number.isFinite(value) ? Math.max(min, Math.min(max, value)) : fallback;
 export function normalizePedals(value?: unknown): PedalSettings {
-  const p = obj(value), s = obj(p.saturation), c = obj(p.chorus), d = obj(p.delay);
+  const p = obj(value), s = obj(p.saturation), c = obj(p.chorus), d = obj(p.delay), o = obj(p.octaver);
   return {enabled: p.enabled === true,
+    octaver: {enabled: o.enabled === true, direct: clamp(o.direct, 100, 0, 100), down: clamp(o.down, 35, 0, 100), up: clamp(o.up, 0, 0, 100)},
     saturation: {enabled: s.enabled === true, type: s.type === 'distortion' || s.type === 'fuzz' ? s.type : 'overdrive', gain: clamp(s.gain, 45, 0, 100), tone: clamp(s.tone, 50, 0, 100), level: clamp(s.level, 0, -18, 12), blend: clamp(s.blend, 65, 0, 100)},
     chorus: {enabled: c.enabled === true, rate: clamp(c.rate, .8, .1, 5), depth: clamp(c.depth, 50, 0, 100), mix: clamp(c.mix, 20, 0, 50)},
     delay: {enabled: d.enabled === true, time: clamp(d.time, 280, 60, 600), feedback: clamp(d.feedback, 25, 0, 50), mix: clamp(d.mix, 18, 0, 40)}};

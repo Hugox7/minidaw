@@ -41,9 +41,11 @@ function ensureNode(track: Track) {
   node.mix.update(track);
   return node;
 }
-export async function startPlayback(tracks: Track[], bpm: number, steps: number, onStep: (step: number) => void, onEnd: () => void, onStart?: (time: number) => void, countIn?: CountInOptions, recording?: {durationSeconds: number}) {
+export async function startPlayback(tracks: Track[], bpm: number, steps: number, onStep: (step: number) => void, onEnd: () => void, onStart?: (time: number) => void, countIn?: CountInOptions, recording?: {durationSeconds: number}, startStep = 0) {
   stopPlayback();
   if (recording && (!Number.isFinite(recording.durationSeconds) || recording.durationSeconds <= 0)) throw new Error('Durée maximale d’enregistrement invalide.');
+  const offsetStep = Math.max(0, Math.min(steps - 1, Math.floor(Number.isFinite(startStep) ? startStep : 0)));
+  const offset = offsetStep * 15 / bpm;
   const request = session;
   await Tone.start();
   if (request !== session) return false;
@@ -62,27 +64,30 @@ export async function startPlayback(tracks: Track[], bpm: number, steps: number,
     if (track.kind === 'audio') {
       const length = steps * 60 / bpm / 4;
       (track.clips ?? []).forEach(clip => {
-        if (clip.startSeconds < 0 || clip.startSeconds >= length) return;
-        transport.schedule(time => {if (request === session) node.voice.playClip?.({...clip, duration: Math.min(clip.duration, length - clip.startSeconds)}, time);}, clip.startSeconds);
+        if (clip.startSeconds < 0 || clip.startSeconds >= length || clip.startSeconds + clip.duration <= offset) return;
+        const skipped = Math.max(0, offset - clip.startSeconds);
+        const resumed = {...clip, startSeconds: Math.max(offset, clip.startSeconds), sourceOffset: (clip.sourceOffset ?? 0) + skipped, duration: Math.min(clip.duration - skipped, length - Math.max(offset, clip.startSeconds))};
+        transport.schedule(time => {if (request === session) node.voice.playClip?.(resumed, time);}, resumed.startSeconds);
       });
       return;
     }
     track.notes.forEach(note => {
-      if (note.step >= steps) return;
+      if (note.step >= steps || note.step + note.duration <= offsetStep || (track.kind === 'drums' && note.step < offsetStep)) return;
+      const at = Math.max(offsetStep, note.step);
       transport.schedule(time => {
         if (request !== session) return;
-        const duration = Math.min(note.duration, steps - note.step) * 60 / bpm / 4;
+        const duration = (Math.min(note.step + note.duration, steps) - at) * 60 / bpm / 4;
         node.voice.trigger(note.midi, duration, time, Math.max(.05, note.velocity));
-      }, `${Math.floor(note.step / 16)}:${Math.floor(note.step % 16 / 4)}:${note.step % 4}`);
+      }, at * 15 / bpm);
     });
   });
   transport.scheduleRepeat(time => {
     const step = Math.round(transport.getTicksAtTime(time) / (transport.PPQ / 4));
-    Tone.getDraw().schedule(() => {if (request === session) onStep(Math.min(step, recording ? Math.max(0, Math.ceil(recording.durationSeconds * bpm / 15 - 1e-7) - 1) : steps));}, time);
+    Tone.getDraw().schedule(() => {if (request === session) onStep(Math.min(step, recording ? Math.max(0, offsetStep + Math.ceil(recording.durationSeconds * bpm / 15 - 1e-7) - 1) : steps));}, time);
   }, '16n', 0);
   transport.scheduleOnce(time => {
     Tone.getDraw().schedule(() => {if (request === session) {stopPlayback(); onEnd();}}, time);
-  }, recording ? recording.durationSeconds : `${Math.floor(steps / 16)}:${Math.floor(steps % 16 / 4)}:${steps % 4}`);
+  }, recording ? offset + recording.durationSeconds : `${Math.floor(steps / 16)}:${Math.floor(steps % 16 / 4)}:${steps % 4}`);
   const timing = countInTiming(bpm, countIn?.bars ?? 0, Tone.now() + .1);
   if (timing.clicks.length) {
     countInSynth = new Tone.Synth({oscillator: {type: 'sine'}, envelope: {attack: .001, decay: .025, sustain: 0, release: .01}, volume: -14}).connect(getOutputBus());
@@ -94,7 +99,7 @@ export async function startPlayback(tracks: Track[], bpm: number, steps: number,
   // Arm the recorder now for a future frame, after the final count-in beat.
   onStart?.(timing.startTime);
   if (countIn?.onRecordingStart) Tone.getDraw().schedule(() => {if (request === session) countIn.onRecordingStart?.();}, timing.startTime);
-  transport.start(timing.startTime);
+  transport.start(timing.startTime, offset);
   return true;
 }
 export function getTrackPeaks(id: string) {return preview?.trackId === id ? preview.mix.peaks() : nodes.get(id)?.mix.peaks() ?? [0, 0];}

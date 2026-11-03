@@ -88,7 +88,7 @@
   "Batterie synthétique": "Batería sintetizada",
   "Blanche · 2 temps": "Blanca · 2 tiempos",
   "Blend · son saturé": "Blend · sonido saturado",
-  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Conecta el instrumento a la entrada de instrumento/Hi-Z de tu interfaz. Tras la cuenta de entrada elegida, la toma empieza al principio del tema y continúa hasta pulsar Detener grabación. El tema se alarga automáticamente al superar el último compás; las otras pistas no se repiten. Repetir toma conserva esta pista y sus efectos; la nueva toma sustituye sus clips solo al confirmarla. Grabar siempre añade una pista si esta ya contiene clips.",
+  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Conecta el instrumento a la entrada de instrumento/Hi-Z de tu interfaz. Tras la cuenta de entrada elegida, la toma empieza en la posición del cursor y continúa hasta pulsar Detener grabación. El tema se alarga automáticamente al superar el último compás; las otras pistas no se repiten. Repetir toma conserva esta pista y sus efectos; la nueva toma sustituye sus clips solo al confirmarla. Grabar siempre añade una pista si esta ya contiene clips.",
   "Breakbeat syncopé": "Breakbeat sincopado",
   "Breakbeats": "Breakbeats",
   "CLIP": "CLIP",
@@ -634,5 +634,13 @@
   "Contrebasse · archet": "Contrabajo · arco",
   "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "Un contrabajo tocado con arco, amplio y sostenido para notas largas. Prueba de Mi1 a Sol3.",
   "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples: Tonejs Instruments y VSCO 2 CE ·",
-  "Sources et licences des samples": "Fuentes y licencias de los samples"
+  "Sources et licences des samples": "Fuentes y licencias de los samples",
+  "Position de départ": "Posición de inicio",
+  "Octaver": "Octavador",
+  "Activer l’octaver": "Activar el octavador",
+  "Son direct de l’octaver": "Señal directa del octavador",
+  "Octave −1": "Octava −1",
+  "Octave +1": "Octava +1",
+  "Ajoute une octave grave ou aiguë avant la saturation. Les trois volumes s’additionnent : baisse-les si le niveau devient trop fort.": "Añade una octava grave o aguda antes de la saturación. Los tres niveles se suman: bájalos si el volumen es demasiado alto.",
+  "Octaver → Saturation → Chorus → Delay → Ampli / baffle → Mixage": "Octavador → Saturación → Chorus → Delay → Ampli / pantalla → Mezcla"
 }

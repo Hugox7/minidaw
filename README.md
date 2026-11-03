@@ -1,3 +1,11 @@
+## V1 bêta 12 — Octaver
+
+Pédales basse/guitare : octaver avant saturation, son direct et voix −12/+12 demi-tons avec volumes indépendants 0–100 %. Valeurs initiales direct 100 %, grave 35 %, aigu 0 %, effet désactivé pour les projets existants. Double ligne de délai modulée avec fondu, fenêtre 100 ms, sans feedback ; rendu numérique pouvant moduler les attaques et accords. Les volumes s’additionnent. DSP créé seulement à la première activation. Sauvegarde et export via la chaîne commune, aucune dépendance ajoutée. FR/EN/ES et guide mis à jour. Version complète incluant toutes les précédentes.
+
+## V1 bêta 11 — Curseur de départ
+
+Clic sur la règle dans les deux vues, grille double croche ; marqueur partagé, prise en compte du zoom/défilement, clavier flèches/Début/Fin. Lecture et enregistrement depuis le repère avec décompte ; reprise au milieu des clips, notes tenues réattaquées pour leur durée restante, aucun ancien coup de batterie rejoué. Arrêt revient au repère ; Retour au début remet à zéro. Déplacement verrouillé pendant une prise. L’export conserve son départ au début du morceau. Position de travail non stockée dans les projets. Version complète incluant toutes les précédentes.
+
 ## V1 bêta 10.1 — Barre de lecture
 
 Bouton d’ajustement intégré à côté du nombre de mesures ; styles, focus et état désactivé harmonisés. Champs, boutons et compteurs alignés verticalement. Version complète incluant la bêta 10.

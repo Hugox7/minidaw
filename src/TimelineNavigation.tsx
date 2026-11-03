@@ -71,6 +71,11 @@ export function createTimelineNavigation() {
     };
 }
 const TimelineContext = createContext<ReturnType<typeof createTimelineNavigation> | null>(null);
+type CursorState = {step: number; disabled: boolean; seek: (step: number) => void};
+const CursorContext = createContext<CursorState | null>(null);
+export function TimelineCursorProvider({children, ...value}: CursorState & {children: ReactNode}) {
+    return <CursorContext.Provider value={value}>{children}</CursorContext.Provider>;
+}
 export function TimelineProvider({ children }: {
     children: ReactNode;
 }) {
@@ -113,5 +118,7 @@ export function TimelineRuler({ bars, pixelsPerBeat, head = 0, label = '', onCle
     canClearMeasure?: (bar: number) => boolean;
     disabled?: boolean;
 }) {
-    return <div className="shared-timeline-ruler" style={{ width: head + bars * 4 * pixelsPerBeat }}>{head > 0 && <span className="timeline-ruler-head" style={{ width: head }}>{tr(label)}</span>}<div className="timeline-measures">{Array.from({ length: bars }, (_, index) => <div key={index} style={{ width: pixelsPerBeat * 4 }}><strong className={onClearMeasure ? "timeline-measure-title" : undefined}>{tr("Mesure ")}{index + 1}{onClearMeasure && <button type="button" className="measure-trash" aria-label={tr("Vider la mesure {{v0}} de cette piste", { v0: index + 1 })} title={tr("Vider la mesure {{v0}} de cette piste", { v0: index + 1 })} disabled={disabled || canClearMeasure?.(index + 1) === false} onClick={event => { event.stopPropagation(); onClearMeasure(index + 1); }}><Trash2 size={12} aria-hidden="true"/></button>}</strong><div>{[1, 2, 3, 4].map(beat => <span key={beat} style={{ width: pixelsPerBeat }}>{beat}</span>)}</div></div>)}</div></div>;
+    const cursor = useContext(CursorContext);
+    const seekable = !!cursor && !cursor.disabled;
+    return <div className={`shared-timeline-ruler${seekable ? ' seekable' : ''}`} style={{ width: head + bars * 4 * pixelsPerBeat }}>{head > 0 && <span className="timeline-ruler-head" style={{ width: head }}>{tr(label)}</span>}<div className="timeline-measures" role={cursor ? 'group' : undefined} tabIndex={seekable ? 0 : undefined} aria-label={cursor ? tr("Position de départ") : undefined} data-cursor-step={cursor ? Math.min(cursor.step, bars * 16 - 1) : undefined} aria-disabled={cursor?.disabled} onKeyDown={e => {if (!seekable || e.target !== e.currentTarget) return; const delta = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (delta || e.key === 'Home' || e.key === 'End') {e.preventDefault();cursor.seek(e.key === 'Home' ? 0 : e.key === 'End' ? bars * 16 - 1 : Math.max(0, Math.min(bars * 16 - 1, cursor.step + delta)));}}} onClick={e => {if (!seekable) return;const x = e.clientX - e.currentTarget.getBoundingClientRect().left;cursor.seek(Math.max(0, Math.min(bars * 16 - 1, Math.floor(x / pixelsPerBeat * 4))));}}>{cursor && <span className="timeline-start-marker" aria-hidden="true" style={{left: Math.min(cursor.step, bars * 16 - 1) / 4 * pixelsPerBeat}}/>}{Array.from({ length: bars }, (_, index) => <div key={index} style={{ width: pixelsPerBeat * 4 }}><strong className={onClearMeasure ? "timeline-measure-title" : undefined}>{tr("Mesure ")}{index + 1}{onClearMeasure && <button type="button" className="measure-trash" aria-label={tr("Vider la mesure {{v0}} de cette piste", { v0: index + 1 })} title={tr("Vider la mesure {{v0}} de cette piste", { v0: index + 1 })} disabled={disabled || canClearMeasure?.(index + 1) === false} onClick={event => { event.stopPropagation(); onClearMeasure(index + 1); }}><Trash2 size={12} aria-hidden="true"/></button>}</strong><div>{[1, 2, 3, 4].map(beat => <span key={beat} style={{ width: pixelsPerBeat }}>{beat}</span>)}</div></div>)}</div></div>;
 }

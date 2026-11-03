@@ -88,7 +88,7 @@
   "Batterie synthétique": "Batterie synthétique",
   "Blanche · 2 temps": "Blanche · 2 temps",
   "Blend · son saturé": "Blend · son saturé",
-  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.",
+  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence à la position du curseur et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.",
   "Breakbeat syncopé": "Breakbeat syncopé",
   "Breakbeats": "Breakbeats",
   "CLIP": "CLIP",
@@ -634,5 +634,13 @@
   "Contrebasse · archet": "Contrebasse · archet",
   "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.",
   "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples : Tonejs Instruments et VSCO 2 CE ·",
-  "Sources et licences des samples": "Sources et licences des samples"
+  "Sources et licences des samples": "Sources et licences des samples",
+  "Position de départ": "Position de départ",
+  "Octaver": "Octaver",
+  "Activer l’octaver": "Activer l’octaver",
+  "Son direct de l’octaver": "Son direct de l’octaver",
+  "Octave −1": "Octave −1",
+  "Octave +1": "Octave +1",
+  "Ajoute une octave grave ou aiguë avant la saturation. Les trois volumes s’additionnent : baisse-les si le niveau devient trop fort.": "Ajoute une octave grave ou aiguë avant la saturation. Les trois volumes s’additionnent : baisse-les si le niveau devient trop fort.",
+  "Octaver → Saturation → Chorus → Delay → Ampli / baffle → Mixage": "Octaver → Saturation → Chorus → Delay → Ampli / baffle → Mixage"
 }

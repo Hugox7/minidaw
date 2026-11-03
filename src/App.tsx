@@ -16,7 +16,7 @@ import LevelMeter from './LevelMeter';
 import VolumeControl from './VolumeControl';
 import { MAX_TRACK_VOLUME_DB, normalizeTrackVolume } from './volumeSettings';
 import { getMasterPeaks, setMasterVolume, normalizeVolume } from './outputBus';
-import { TimelineProvider, TimelineControls, TimelineRuler, useTimelineView } from './TimelineNavigation';
+import { TimelineProvider, TimelineCursorProvider, TimelineControls, TimelineRuler, useTimelineView } from './TimelineNavigation';
 import { normalizeClip, visiblePeaks } from './clipEditing';
 import AmpPanel from './AmpPanel';
 import { normalizeAmp, normalizeSource } from './ampSettings';
@@ -76,6 +76,7 @@ function Studio() {
     const [selected, setSelected] = useState('');
     const [playing, setPlaying] = useState(false);
     const [playhead, setPlayhead] = useState(0);
+    const [startStep, setStartStep] = useState(0);
     const [status, setStatus] = useState(tr("Pr\u00EAt"));
     const [problem, setProblem] = useState('');
     const [input, setInput] = useState<InputSession | null>(null);
@@ -94,6 +95,7 @@ function Studio() {
     const track = project.tracks.find(t => t.id === selected) ?? project.tracks[0];
     const busy = playing || phase !== 'idle' || projectBusy;
     const totalSteps = project.bars * 16, totalSeconds = project.bars * 4 * 60 / project.bpm;
+    useEffect(() => {if (startStep >= totalSteps) {setStartStep(0); if (!playing) setPlayhead(0);}}, [startStep, totalSteps, playing]);
     useEffect(() => { setMasterVolume(project.masterVolume ?? 0); }, [project.masterVolume]);
     useEffect(() => { try {
         localStorage.setItem('mini-daw-v01', JSON.stringify(project));
@@ -121,9 +123,9 @@ function Studio() {
         if (kind === 'audio')
             setArmedId(t.id);
     };
-    function stop() { setCountBeat(0); stopPlayback(); captureRef.current?.stop(); setPlaying(false); setPlayhead(0); setStatus(captureRef.current ? tr("Finalisation de la prise\u2026") : tr("Arr\u00EAt\u00E9")); }
-    async function toggle(auditionRetake = false) {
-        if (playing || captureRef.current) {
+    function stop() { setCountBeat(0); stopPlayback(); captureRef.current?.stop(); setPlaying(false); setPlayhead(startStep); setStatus(captureRef.current ? tr("Finalisation de la prise\u2026") : tr("Arr\u00EAt\u00E9")); }
+    async function toggle(auditionRetake = false, fromStep = startStep, seeking = false) {
+        if (!seeking && (playing || captureRef.current)) {
             stop();
             return;
         }
@@ -133,8 +135,8 @@ function Studio() {
             setProblem('');
             setPlaying(true);
             setStatus(tr("Pr\u00E9paration audio\u2026"));
-            setPlayhead(0);
-            const started = await startPlayback(auditionRetake && review ? project.tracks.map(t => t.id === review.trackId ? { ...t, clips: [review.clip] } : t) : project.tracks, project.bpm, totalSteps, setPlayhead, () => { setPlaying(false); setPlayhead(0); setStatus(tr("Termin\u00E9")); });
+            setPlayhead(fromStep);
+            const started = await startPlayback(auditionRetake && review ? project.tracks.map(t => t.id === review.trackId ? { ...t, clips: [review.clip] } : t) : project.tracks, project.bpm, totalSteps, setPlayhead, () => { setPlaying(false); setPlayhead(fromStep); setStatus(tr("Termin\u00E9")); }, undefined, undefined, undefined, fromStep);
             if (started)
                 setStatus(tr("Lecture"));
         }
@@ -230,7 +232,7 @@ function Studio() {
             captureRef.current = capture;
             void capture.done.catch(() => { });
             const active = capture;
-            const started = await startPlayback(replace ? project.tracks.map(t => t.id === target!.id ? { ...t, clips: [] } : t) : project.tracks, project.bpm, totalSteps, step => { setPlayhead(step); const bars = recordingBarsAtStep(step); setProject(p => bars > p.bars ? { ...p, bars } : p); }, () => { setPlaying(false); setPlayhead(0); setStatus(tr("Finalisation de la prise\u2026")); }, time => { active.start(time, time + maximumSeconds); setCountBeat(0); setPhase(countInBars ? 'countin' : 'preparing'); setStatus(countInBars ? tr("Pr\u00E9pare-toi\u2026") : tr("D\u00E9marrage\u2026")); }, { bars: countInBars, onCount: (beat, total) => { setCountBeat(beat); setStatus(tr("D\u00E9compte {{v0}} / {{v1}}", { v0: beat, v1: total })); }, onRecordingStart: () => { setCountBeat(0); setPhase('recording'); setStatus(tr("\u25CF Enregistrement")); } }, { durationSeconds: maximumSeconds });
+            const started = await startPlayback(replace ? project.tracks.map(t => t.id === target!.id ? { ...t, clips: [] } : t) : project.tracks, project.bpm, totalSteps, step => { setPlayhead(step); const bars = recordingBarsAtStep(step); setProject(p => bars > p.bars ? { ...p, bars } : p); }, () => { setPlaying(false); setPlayhead(startStep); setStatus(tr("Finalisation de la prise\u2026")); }, time => { active.start(time, time + maximumSeconds); setCountBeat(0); setPhase(countInBars ? 'countin' : 'preparing'); setStatus(countInBars ? tr("Pr\u00E9pare-toi\u2026") : tr("D\u00E9marrage\u2026")); }, { bars: countInBars, onCount: (beat, total) => { setCountBeat(beat); setStatus(tr("D\u00E9compte {{v0}} / {{v1}}", { v0: beat, v1: total })); }, onRecordingStart: () => { setCountBeat(0); setPhase('recording'); setStatus(tr("\u25CF Enregistrement")); } }, { durationSeconds: maximumSeconds }, startStep);
             if (!started) {
                 active.cancel();
                 setPhase('idle');
@@ -240,10 +242,10 @@ function Studio() {
             stopPlayback();
             setCountBeat(0);
             setPlaying(false);
-            setPlayhead(0);
+            setPlayhead(startStep);
             captureRef.current = null;
             if (blob)
-                await saveTake({ blob, trackId: target.id, name: `${target.name} ${new Date().toLocaleTimeString(localeTag()).replace(/:/g, '-')}.wav`, startSeconds: 0, replace, limitSeconds: maximumSeconds, sampleRate });
+                await saveTake({ blob, trackId: target.id, name: `${target.name} ${new Date().toLocaleTimeString(localeTag()).replace(/:/g, '-')}.wav`, startSeconds: startStep * 15 / project.bpm, replace, limitSeconds: maximumSeconds, sampleRate });
             else {
                 setPhase('idle');
                 setStatus(tr("Prise annul\u00E9e"));
@@ -289,6 +291,7 @@ function Studio() {
         setArmedId('');
         setPlaying(false);
         setPlayhead(0);
+        setStartStep(0);
         setCountBeat(0);
         setProblem('');
         setStatus(tr("Projet pr\u00EAt"));
@@ -318,20 +321,26 @@ function Studio() {
     const barOptions = [...new Set([2, 4, 8, 16, 32, 64, project.bars])].sort((a, b) => a - b);
     const editorName = track.kind === 'audio' ? tr("Piste audio") : track.kind === 'drums' ? tr("S\u00E9quenceur de batterie") : tr("Piano roll");
     const soundName = (t: Track) => t.kind === 'audio' ? tr("Enregistrement / import") : t.kind === 'drums' ? t.drumKit === 'acoustic' ? tr("Acoustique \u00B7 Pearl") : tr("Batterie synth\u00E9tique") : INSTRUMENTS[t.instrument].name;
-    return <div className="app">
+    function seek(step: number) {
+        if (phase !== 'idle' || projectBusy || pending) return;
+        const next = Math.max(0, Math.min(totalSteps - 1, step));
+        setStartStep(next); setPlayhead(next);
+        if (playing) void toggle(false, next, true);
+    }
+    return <TimelineCursorProvider step={startStep} disabled={phase !== 'idle' || projectBusy || !!pending} seek={seek}><div className="app">
     <header className="topbar"><div className="brand"><Music2 size={22}/><strong>{tr("mini")}<span>{tr("DAW")}</span></strong><small className="release-badge" title={tr("Version {{v0}}", { v0: APP_VERSION })}>{tr(APP_RELEASE_LABEL)}</small><small>{tr("audio + MIDI")}</small></div><nav className="topbar-links" aria-label={tr("Liens utiles")}><button className="guide-link" disabled={busy || connecting} onClick={() => { setProblem(''); stopPlayback(); setTunerOpen(true); }}>{tr("Accordeur")}</button><a className="guide-link" href={guideHref()} target="_blank" rel="noopener noreferrer" aria-label={tr("Guide d\u2019utilisation (nouvel onglet)")}>{tr("Guide \u2197")}</a><TrainingMenu /><LanguageSelector/></nav><span className="saved"><Save size={14}/>{tr(" Copie navigateur auto")}</span></header>
     <fieldset className="studio-workspace" disabled={projectBusy}>
     <ProjectPanel project={project} disabled={playing || phase !== 'idle' || Boolean(pending) || connecting} onName={name => setProject(p => ({ ...p, name }))} onLoad={loadProject} onNew={newProject} onWorking={setProjectBusy}/>
     <section className="transport">
-      <div className="transport-controls"><button disabled={phase === 'saving' || projectBusy} className="icon-button primary" onClick={() => void toggle()} title={playing ? tr("Arr\u00EAter") : tr("Lecture")}>{playing ? <Square size={19} fill="currentColor"/> : <Play size={19} fill="currentColor"/>}</button><button className="icon-button record-transport" disabled={phase === 'saving' || projectBusy || (!captureRef.current && (playing || !input || !armedId || Boolean(pending) || Boolean(review)))} onClick={() => captureRef.current ? stop() : void record()} title={captureRef.current ? tr("Arr\u00EAter la prise") : tr("Enregistrer la piste arm\u00E9e")}><Mic size={18}/></button><button disabled={phase === 'saving' || projectBusy} className="icon-button" onClick={stop} title={tr("Retour au d\u00E9but")}><RotateCcw size={18}/></button></div>
+      <div className="transport-controls"><button disabled={phase === 'saving' || projectBusy} className="icon-button primary" onClick={() => void toggle()} title={playing ? tr("Arr\u00EAter") : tr("Lecture")}>{playing ? <Square size={19} fill="currentColor"/> : <Play size={19} fill="currentColor"/>}</button><button className="icon-button record-transport" disabled={phase === 'saving' || projectBusy || (!captureRef.current && (playing || !input || !armedId || Boolean(pending) || Boolean(review)))} onClick={() => captureRef.current ? stop() : void record()} title={captureRef.current ? tr("Arr\u00EAter la prise") : tr("Enregistrer la piste arm\u00E9e")}><Mic size={18}/></button><button disabled={phase !== 'idle' || projectBusy} className="icon-button" onClick={() => {stop(); setStartStep(0); setPlayhead(0);}} title={tr("Retour au d\u00E9but")}><RotateCcw size={18}/></button></div>
       <div className="transport-field"><label>{tr("Tempo")}</label><div className="number-field"><input aria-label={tr("Tempo BPM")} type="number" min="40" max="240" value={project.bpm} disabled={busy} onChange={e => { const bpm = Math.max(40, Math.min(240, Number(e.target.value) || 40)); setProject(p => { const audioEnd = Math.max(0, ...p.tracks.flatMap(t => (t.clips ?? []).map(c => c.startSeconds + c.duration))); return { ...p, bpm, bars: Math.max(p.bars, Math.ceil(audioEnd / (4 * 60 / bpm))) }; }); }}/><span>{tr("BPM")}</span></div></div>
       <div className="transport-field measure-field"><label>{tr("Mesures")}</label><div className="measure-controls"><select disabled={busy} value={project.bars} onChange={e => setProject(p => ({ ...p, bars: Number(e.target.value) }))}>{barOptions.map(b => <option key={b} value={b}>{b}</option>)}</select>
       <button className="fit-song-button" disabled={busy || !!review || contentBars(project) >= project.bars} title={tr("Retirer les mesures vides à la fin, en conservant toutes les pistes.")} onClick={() => { setProject(p => ({ ...p, bars: contentBars(p) })); setPlayhead(0); setStatus(tr("Durée ajustée à la fin du morceau.")); }}>{tr("Ajuster à la fin du morceau")}</button></div></div>
       <div className="master-strip"><strong>{tr("Sortie g\u00E9n\u00E9rale")}</strong><VolumeControl label={tr("Volume g\u00E9n\u00E9ral")} value={project.masterVolume ?? 0} onChange={masterVolume => { setMasterVolume(masterVolume); setProject(p => ({ ...p, masterVolume })); }}/><LevelMeter label={tr("Niveau de sortie g\u00E9n\u00E9rale")} read={getMasterPeaks}/></div>
-      <PlaybackTime active={playing && (phase === 'idle' || phase === 'recording')} totalSeconds={totalSeconds}/><div className="transport-position"><strong>{Math.floor(playhead / 16) + 1}<span> : </span>{Math.floor(playhead % 16 / 4) + 1}<span> : </span>{playhead % 4 + 1}</strong><small>{tr("MESURE : TEMPS : DOUBLE")}</small></div><span className="status">● {tr(status)}</span>
+      <PlaybackTime active={playing && (phase === 'idle' || phase === 'recording')} totalSeconds={totalSeconds} positionSeconds={startStep * 15 / project.bpm}/><div className="transport-position"><strong>{Math.floor(playhead / 16) + 1}<span> : </span>{Math.floor(playhead % 16 / 4) + 1}<span> : </span>{playhead % 4 + 1}</strong><small>{tr("MESURE : TEMPS : DOUBLE")}</small></div><span className="status">● {tr(status)}</span>
     </section>
     <main>
-      {review && <div className="retake-review" role="region" aria-label={tr("Comparer les prises")}><strong>{tr("Nouvelle prise \u00E0 valider \u00B7 ")}{project.tracks.find(t => t.id === review.trackId)?.name}</strong><p>{tr("L\u2019ancienne prise reste en place. \u00C9coute les deux versions avant de choisir.")}</p><div><button disabled={busy} onClick={() => void toggle(true)}>{tr("\u00C9couter la nouvelle")}</button><button disabled={busy} onClick={() => void toggle()}>{tr("\u00C9couter l\u2019ancienne")}</button><button disabled={busy} onClick={() => { setProject(p => ({ ...p, pendingRetake: undefined, bars: Math.max(p.bars, barsForDuration(review.clip.duration, p.bpm)), tracks: p.tracks.map(t => t.id === review.trackId ? { ...t, clips: [review.clip] } : t) })); setStatus(tr("Nouvelle prise conserv\u00E9e")); }}>{tr("Garder la nouvelle prise")}</button><button disabled={busy} onClick={() => { setProject(p => ({ ...p, pendingRetake: undefined })); setStatus(tr("Ancienne prise conserv\u00E9e")); }}>{tr("Garder l\u2019ancienne prise")}</button></div></div>}
+      {review && <div className="retake-review" role="region" aria-label={tr("Comparer les prises")}><strong>{tr("Nouvelle prise \u00E0 valider \u00B7 ")}{project.tracks.find(t => t.id === review.trackId)?.name}</strong><p>{tr("L\u2019ancienne prise reste en place. \u00C9coute les deux versions avant de choisir.")}</p><div><button disabled={busy} onClick={() => void toggle(true)}>{tr("\u00C9couter la nouvelle")}</button><button disabled={busy} onClick={() => void toggle()}>{tr("\u00C9couter l\u2019ancienne")}</button><button disabled={busy} onClick={() => { setProject(p => ({ ...p, pendingRetake: undefined, bars: Math.max(p.bars, barsForDuration(review.clip.startSeconds + review.clip.duration, p.bpm)), tracks: p.tracks.map(t => t.id === review.trackId ? { ...t, clips: [review.clip] } : t) })); setStatus(tr("Nouvelle prise conserv\u00E9e")); }}>{tr("Garder la nouvelle prise")}</button><button disabled={busy} onClick={() => { setProject(p => ({ ...p, pendingRetake: undefined })); setStatus(tr("Ancienne prise conserv\u00E9e")); }}>{tr("Garder l\u2019ancienne prise")}</button></div></div>}
 
       {tr(problem) && <div className="audio-problem" role="alert">{tr(problem)}</div>}
       {pending && phase !== 'saving' && <div className="unsaved-take"><strong>{tr(pending.name)}{tr(" \u00B7 sauvegarde \u00E0 terminer")}</strong><button disabled={busy} onClick={() => void saveTake(pending)}>{tr("R\u00E9essayer la sauvegarde")}</button><button onClick={() => download(pending.blob, pending.name)}>{tr("T\u00E9l\u00E9charger la prise")}</button><button disabled={busy} onClick={() => { if (confirm(tr("Abandonner cette prise non sauvegard\u00E9e ?"))) {
@@ -357,7 +366,7 @@ function Studio() {
           </div>)}
         </div></div>
       </section>
-      <section className="editor"><div className="section-heading editor-heading"><div><h2>{tr(editorName)}</h2><p>{track.name} · {tr(soundName(track))}</p></div><div className="editor-actions"><PlaybackTime active={playing && (phase === 'idle' || phase === 'recording')} totalSeconds={totalSeconds} compact/>{phase === 'countin' && <span className="count-in-badge" aria-hidden="true">{countBeat ? (countBeat - 1) % 4 + 1 : '…'}<small>{tr("D\u00E9compte")}</small></span>}<button disabled={phase === 'saving' || projectBusy} className={`editor-play ${playing ? 'is-playing' : ''}`} onClick={() => void toggle()} aria-label={playing ? tr("Arr\u00EAter la lecture depuis l\u2019\u00E9diteur") : tr("Lancer la lecture depuis l\u2019\u00E9diteur")} aria-pressed={playing} title={playing ? tr("Arr\u00EAter la lecture") : tr("Lire le morceau")}>{playing ? <Square size={15} fill="currentColor"/> : <Play size={15} fill="currentColor"/>}{playing ? tr("Arr\u00EAter") : tr("Lecture")}</button>{track.kind !== 'audio' && <span className="grid-label">{tr("Grille 1/16")}</span>}{track.kind !== 'drums' && <button disabled={busy || Boolean(review)} onClick={clear}><Trash2 size={14}/>{tr(" Effacer")}</button>}</div></div>
+      <section className="editor"><div className="section-heading editor-heading"><div><h2>{tr(editorName)}</h2><p>{track.name} · {tr(soundName(track))}</p></div><div className="editor-actions"><PlaybackTime active={playing && (phase === 'idle' || phase === 'recording')} totalSeconds={totalSeconds} positionSeconds={startStep * 15 / project.bpm} compact/>{phase === 'countin' && <span className="count-in-badge" aria-hidden="true">{countBeat ? (countBeat - 1) % 4 + 1 : '…'}<small>{tr("D\u00E9compte")}</small></span>}<button disabled={phase === 'saving' || projectBusy} className={`editor-play ${playing ? 'is-playing' : ''}`} onClick={() => void toggle()} aria-label={playing ? tr("Arr\u00EAter la lecture depuis l\u2019\u00E9diteur") : tr("Lancer la lecture depuis l\u2019\u00E9diteur")} aria-pressed={playing} title={playing ? tr("Arr\u00EAter la lecture") : tr("Lire le morceau")}>{playing ? <Square size={15} fill="currentColor"/> : <Play size={15} fill="currentColor"/>}{playing ? tr("Arr\u00EAter") : tr("Lecture")}</button>{track.kind !== 'audio' && <span className="grid-label">{tr("Grille 1/16")}</span>}{track.kind !== 'drums' && <button disabled={busy || Boolean(review)} onClick={clear}><Trash2 size={14}/>{tr(" Effacer")}</button>}</div></div>
         {phase === 'countin' && <div className="count-in-banner" role="status" aria-live="polite"><strong>{countBeat ? (countBeat - 1) % 4 + 1 : '…'}</strong><div><b>{tr("D\u00E9compte avant la prise")}</b><span>{countBeat ? tr("Mesure {{v0}} / {{v1}} \u00B7 {{v2}} BPM", { v0: Math.floor((countBeat - 1) / 4) + 1, v1: countInBars, v2: project.bpm }) : tr("Pr\u00E9pare-toi : la prise commence apr\u00E8s les clics.")}</span></div></div>}
         <AmpPanel key={`amp-${track.id}`} track={track} disabled={busy} onChange={next => { changeTrack(track.id, () => next); updateTrackMix(next); }}/>
         <MixPanel key={track.id} track={track} onChange={mix => { const next = { ...track, mix }; changeTrack(track.id, () => next); updateTrackMix(next); }}/>
@@ -370,5 +379,5 @@ function Studio() {
     </main></fieldset>
     {tunerOpen && <TunerModal input={input} devices={devices} deviceId={deviceId} channel={channel} connecting={connecting} error={tr(problem)} onDevice={id => { disconnect(); setDeviceId(id); }} onChannel={value => { disconnect(); setChannel(value); }} onConnect={() => void connect()} onDisconnect={disconnect} onClose={() => setTunerOpen(false)}/>}
     <footer>{tr("miniDAW ")}{tr(APP_RELEASE_LABEL)}{tr(" \u00B7 Audio + MIDI \u00B7 Projets .minidaw sur disque \u00B7 Copie de travail dans ce navigateur \u00B7 Enregistrement sur localhost ou HTTPS.")}</footer>
-  </div>;
+  </div></TimelineCursorProvider>;
 }

@@ -88,7 +88,7 @@
   "Batterie synthétique": "Synth drums",
   "Blanche · 2 temps": "Half note · 2 beats",
   "Blend · son saturé": "Blend · saturated sound",
-  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Connect your instrument to the instrument/Hi-Z input of your interface. After the selected count-in, recording starts at the beginning of the song and continues until you press Stop recording. The song extends automatically beyond its last bar; other tracks are not repeated. Retake keeps this track and its effects; the new take replaces its clips only after you confirm it. Record always adds a track if this one already has clips.",
+  "Branche l’instrument sur l’entrée instrument/Hi-Z de ta carte son. Après le décompte choisi, la prise commence au début du morceau et continue jusqu’à Arrêter la prise. Le morceau s’allonge automatiquement si tu dépasses sa dernière mesure ; les passages des autres pistes ne sont pas répétés. « Refaire la prise » conserve cette piste et ses effets ; sa nouvelle prise remplacera les clips de la piste uniquement après validation. Le bouton Enregistrer ajoute toujours une piste si celle-ci contient déjà des clips.": "Connect your instrument to the instrument/Hi-Z input of your interface. After the selected count-in, recording starts at the cursor position and continues until you press Stop recording. The song extends automatically beyond its last bar; other tracks are not repeated. Retake keeps this track and its effects; the new take replaces its clips only after you confirm it. Record always adds a track if this one already has clips.",
   "Breakbeat syncopé": "Syncopated breakbeat",
   "Breakbeats": "Breakbeats",
   "CLIP": "CLIP",
@@ -634,5 +634,13 @@
   "Contrebasse · archet": "Double bass · bowed",
   "Une contrebasse jouée à l’archet, ample et tenue pour les notes longues. Essaie Mi1 à Sol3.": "A full, sustained bowed double bass for long notes. Try E1 to G3.",
   "Samples : Tonejs Instruments et VSCO 2 CE ·": "Samples: Tonejs Instruments and VSCO 2 CE ·",
-  "Sources et licences des samples": "Sample sources and licenses"
+  "Sources et licences des samples": "Sample sources and licenses",
+  "Position de départ": "Start position",
+  "Octaver": "Octaver",
+  "Activer l’octaver": "Enable octaver",
+  "Son direct de l’octaver": "Octaver dry signal",
+  "Octave −1": "Octave −1",
+  "Octave +1": "Octave +1",
+  "Ajoute une octave grave ou aiguë avant la saturation. Les trois volumes s’additionnent : baisse-les si le niveau devient trop fort.": "Add a lower or higher octave before saturation. The three levels add together: lower them if the output is too loud.",
+  "Octaver → Saturation → Chorus → Delay → Ampli / baffle → Mixage": "Octaver → Saturation → Chorus → Delay → Amp / cabinet → Mixing"
 }

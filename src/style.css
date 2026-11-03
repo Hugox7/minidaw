@@ -133,3 +133,7 @@
 .transport>.playback-time>small,.transport>.transport-position>small{position:absolute;top:calc(100% + 3px);white-space:nowrap;line-height:12px}
 .transport .master-strip{flex:0 0 240px}
 @media(max-width:750px){.transport{padding:28px 14px;column-gap:16px;row-gap:36px}.transport .master-strip{flex-basis:220px}.transport .fit-song-button{max-width:220px}.transport>.measure-field{max-width:100%}}
+
+.timeline-measures{position:relative}.shared-timeline-ruler.seekable .timeline-measures{cursor:crosshair}.timeline-measures:focus-visible{outline:2px solid #a7baff;outline-offset:-2px}.timeline-start-marker{position:absolute;top:0;bottom:0;width:2px;background:#a5b8ff;pointer-events:none;z-index:3}.timeline-start-marker:before{content:"";position:absolute;top:0;left:-4px;width:10px;height:9px;background:#a5b8ff;clip-path:polygon(0 0,100% 0,50% 100%)}
+
+.timeline-measures>.timeline-start-marker{height:100%;padding:0;border:0;width:2px}

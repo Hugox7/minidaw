@@ -22,6 +22,7 @@ export default function PedalPanel({ track, onChange }: {
         return null;
     const source = normalizeSource(track.audioSource), p = normalizePedals(track.pedals);
     const update = (settings: PedalSettings) => onChange({ ...track, pedals: settings });
+    const octaver = (patch: Partial<PedalSettings['octaver']>) => update({ ...p, octaver: { ...p.octaver, ...patch } });
     const sat = (patch: Partial<PedalSettings['saturation']>) => update({ ...p, saturation: { ...p.saturation, ...patch } });
     const chorus = (patch: Partial<PedalSettings['chorus']>) => update({ ...p, chorus: { ...p.chorus, ...patch } });
     const delay = (patch: Partial<PedalSettings['delay']>) => update({ ...p, delay: { ...p.delay, ...patch } });
@@ -29,10 +30,16 @@ export default function PedalPanel({ track, onChange }: {
     const preset = presets.find(item => JSON.stringify(normalizePedals(item.settings)) === JSON.stringify(p))?.id ?? '';
     return <details className="mix-panel pedal-panel" open>
     <summary>{tr("P\u00E9dales \u00B7 ")}{tr(AUDIO_SOURCES[source])}</summary>
-    <div className="pedal-heading"><p>{tr("Saturation \u2192 Chorus \u2192 Delay \u2192 Ampli / baffle \u2192 Mixage")}</p><label><input aria-label={tr("Activer les p\u00E9dales")} type="checkbox" checked={p.enabled} onChange={e => update({ ...p, enabled: e.target.checked })}/>{tr(" Actif")}</label></div>
+    <div className="pedal-heading"><p>{tr("Octaver → Saturation → Chorus → Delay → Ampli / baffle → Mixage")}</p><label><input aria-label={tr("Activer les p\u00E9dales")} type="checkbox" checked={p.enabled} onChange={e => update({ ...p, enabled: e.target.checked })}/>{tr(" Actif")}</label></div>
     <label className="pedal-preset">{tr("Son de d\u00E9part")}<select aria-label={tr("Preset de p\u00E9dales")} value={preset} onChange={e => { const selected = presets.find(item => item.id === e.target.value); if (selected)
         onChange({ ...track, pedals: selected.settings }); }}><option value="" disabled>{tr("Personnalis\u00E9")}</option>{presets.map(item => <option key={item.id} value={item.id}>{tr(item.name)}</option>)}</select></label>
     <fieldset className="pedal-controls" disabled={!p.enabled}><div className="mix-cards">
+      <section className="mix-card"><h3>{tr("Octaver ")}<label><input aria-label={tr("Activer l’octaver")} type="checkbox" checked={p.octaver.enabled} onChange={e => octaver({enabled: e.target.checked})}/>{tr(" Actif")}</label></h3><fieldset disabled={!p.octaver.enabled}>
+        <Slider label="Son direct de l’octaver" value={p.octaver.direct} onChange={direct => octaver({direct})}/>
+        <Slider label="Octave −1" value={p.octaver.down} onChange={down => octaver({down})}/>
+        <Slider label="Octave +1" value={p.octaver.up} onChange={up => octaver({up})}/>
+        <p>{tr("Ajoute une octave grave ou aiguë avant la saturation. Les trois volumes s’additionnent : baisse-les si le niveau devient trop fort.")}</p>
+      </fieldset></section>
       <section className="mix-card"><h3>{tr("Saturation ")}<label><input aria-label={tr("Activer la saturation")} type="checkbox" checked={p.saturation.enabled} onChange={e => sat({ enabled: e.target.checked })}/>{tr(" Actif")}</label></h3><fieldset disabled={!p.saturation.enabled}>
         <label className="pedal-type">{tr("P\u00E9dale")}<select aria-label={tr("Type de saturation")} value={p.saturation.type} onChange={e => sat({ type: e.target.value as PedalType })}>{Object.entries(PEDAL_TYPES).map(([id, name]) => <option key={id} value={id}>{tr(name)}</option>)}</select></label>
         <Slider label={tr("Gain de la p\u00E9dale")} value={p.saturation.gain} onChange={gain => sat({ gain })}/>
